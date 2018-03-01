@@ -70,7 +70,6 @@ def main():
             last_chat_id = last_update['message']['chat']['id']
             last_chat_name = last_update['message']['from']['first_name']
             last_chat_person_id = last_update['message']['from']['id']
-            print (last_chat_person_id, last_chat_name, last_update)
         except:
             None
         if last_chat_name == "romawkka":
@@ -86,12 +85,10 @@ def main():
         elif sym2 in last_chat_text:
             try:
                 e = last_chat_text.split(sym2)
-                print (e)
                 sent = "Cards:\n"
                 for i in range(len(e)):
                     if i>0 and len(e[i]) > 2:
                         sent += '<a href="https://topdeck.ru/apps/cards/'+ e[i] + '">' + e[i] + '</a>\n'
-                print (sent)
                 if len(sent)> 8:
                     botik.send_html_message(last_chat_id, sent, 'HTML', True)   
             except:
